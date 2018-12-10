@@ -25,8 +25,6 @@ app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL', "")  or "sqlite:///db/bellybutton.sqlite"
 db = SQLAlchemy(app)
-db.drop_all()
-db.create_all()
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -34,8 +32,8 @@ Base = automap_base()
 Base.prepare(db.engine, reflect=True)
 
 # Save references to each table
-Samples_Metadata = Base.classes.sample_metadata
-Samples = Base.classes.samples
+Samples_Metadata = Base.classes['sample_metadata']
+Samples = Base.classes['samples']
 
 
 @app.route("/")
