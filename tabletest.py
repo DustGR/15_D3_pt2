@@ -26,3 +26,8 @@ Base = automap_base()
 # reflect the tables
 Base.prepare(db.engine, reflect=True)
 print(Base.classes.keys())
+print(Base.classes)
+print(Base)
+print()
+print(os.environ.get('DATABASE_URL'))
+print(Base.metadata.tables)
