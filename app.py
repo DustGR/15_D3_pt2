@@ -1,5 +1,4 @@
 import os
-
 import pandas as pd
 import numpy as np
 
@@ -8,7 +7,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template,
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -18,6 +17,7 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
+print(os.environ.get('DATABASE_URL')
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL', '') ## or "sqlite:///db/bellybutton.sqlite"
 db = SQLAlchemy(app)
 
